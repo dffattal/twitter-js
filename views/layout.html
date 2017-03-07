@@ -93,16 +93,18 @@
         console.log(tweet);
         //alert('Refreshing... check the console...');
         // some logic to add the new tweet to the DOM…
+        console.log(document.querySelectorAll('div.col-md-9')[0].innerHTML)
         var listOfTweets = document.querySelectorAll('div.col-md-9')[0]
         // var numOfChildren = listOfTweets.children.length
         // <h2><a href="/users/{{tweet.name}}">{{tweet.name}}</a></h2>
         // <p>{{tweet.content}}</p>
         // <p><a href = "">retweet</a>
-        var innerHTML = listOfTweets.innerHTML
+        // var innerHTML = listOfTweets.innerHTML
         var newTweet = `<h2><a href="/users/`+tweet.name+`">`+tweet.name+`</a></h2>
          <p>`+tweet.content+`</p>
          <p><a href = "">retweet</a>`
-        innerHTML += newTweet
+        listOfTweets.innerHTML += newTweet
+        console.log(document.querySelectorAll('div.col-md-9')[0].innerHTML)
       });
     </script>
   </body>
