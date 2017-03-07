@@ -9,6 +9,7 @@
   "author": "anton cataldi, daniel fattal",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "nunjucks": "^3.0.0"
   }
 }
