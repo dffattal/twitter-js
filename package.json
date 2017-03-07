@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon app.js"
   },
-  "author": "anton cataldi",
+  "author": "anton cataldi, daniel fattal",
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.2"
