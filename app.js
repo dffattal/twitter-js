@@ -23,7 +23,12 @@ app.get('/special/**', function (request, response) {
 })
 
 app.get('/**', function (request, response) {
-  response.render('index', {title: 'Hall of Fame', people: people})
+  response.render('index', {title: 'Hall of Fame', people: people}, function(err, html) {
+    if (err) {
+      throw err
+    }
+    response.send(html)
+  })
   //response.send('test123')
 })
 
