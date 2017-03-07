@@ -2,8 +2,11 @@ const _ = require('lodash')
 
 var data = []
 
+var id = 0
+
 function add (name, content) {
-  data.push({ name: name, content: content });
+  id++
+  data.push({ name: name, content: content, id: id });
 }
 
 function list () {
@@ -35,6 +38,13 @@ for (let i = 0; i < 10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
 
+module.exports.add('bob', 'tweet 1')
+module.exports.add('bob', 'tweet 2')
+module.exports.add('bob', 'tweet 3')
+module.exports.add('bob', 'tweet 4')
+module.exports.add('bob', 'tweet 5')
+module.exports.add('bob', 'tweet 6')
+
 // const names = ['anton', 'daniel', 'omri', 'john']
 
 // const tweets = ['this is the first tweet ever', 'something about fullstack', 'something else with fullstack', 'nothing']
@@ -43,7 +53,7 @@ for (let i = 0; i < 10; i++) {
 //   data.push({name: names[i], content: tweets[i]})
 // }
 
-// console.log(data)
+console.log(data)
 
 // // console.log(module.exports.find({name: 'anton'}))
 
