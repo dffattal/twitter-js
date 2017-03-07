@@ -1,7 +1,9 @@
 const express = require('express');
 const nunjucks = require('nunjucks')
 const app = express();
+const routes = require('./routes')
 
+app.use(express.static('public'))
 app.engine('html', nunjucks.render)
 app.set('view engine', 'html')
 nunjucks.configure('views', {noCache: true})
@@ -13,31 +15,33 @@ app.listen(3000, function () {
   //console.log(temp)
 })
 
-app.use(function (request, response, next) {
-  console.log(request.method, request.url)
-  next()
-})
+app.use('/',routes)
 
-app.get('/special/**', function (request, response) {
-  response.send('you reached the special area.')
-})
+// app.use(function (request, response, next) {
+//   console.log(request.method, request.url)
+//   next()
+// })
 
-app.get('/**', function (request, response) {
-  response.render('index', {title: 'Hall of Fame', people: people}, function(err, html) {
-    if (err) {
-      throw err
-    }
-    response.send(html)
-  })
-  //response.send('test123')
-})
+// app.get('/special/**', function (request, response) {
+//   response.send('you reached the special area.')
+// })
 
-app.post('/**', function (request, response) {
-
-  response.send('test123')
-})
-
-app.put('/**', function (request, response) {
-
-  response.send('test123')
-})
+// app.get('/**', function (request, response) {
+//   response.render('index', {title: 'Hall of Fame', people: people}, function(err, html) {
+//     if (err) {
+//       throw err
+//     }
+//     response.send(html)
+//   })
+//   //response.send('test123')
+// })
+//
+// app.post('/**', function (request, response) {
+//
+//   response.send('test123')
+// })
+//
+// app.put('/**', function (request, response) {
+//
+//   response.send('test123')
+// })
